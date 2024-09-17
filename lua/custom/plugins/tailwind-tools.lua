@@ -1,12 +1,25 @@
--- tailwind-tools.lua
+-- autotag-config.lua
+
 return {
-  'luckasRanarison/tailwind-tools.nvim',
-  name = 'tailwind-tools',
-  build = ':UpdateRemotePlugins',
+  'windwp/nvim-ts-autotag',
+  name = 'nvim-ts-autotag',
   dependencies = {
-    'nvim-treesitter/nvim-treesitter',
-    'nvim-telescope/telescope.nvim', -- optional
-    'neovim/nvim-lspconfig', -- optional
+    'nvim-treesitter/nvim-treesitter', -- Required dependency
   },
-  opts = {}, -- your configuration
+  config = function()
+    require('nvim-ts-autotag').setup {
+      -- Global settings
+      opts = {
+        enable_close = true, -- Auto close tags
+        enable_rename = true, -- Auto rename pairs of tags
+        enable_close_on_slash = false, -- Auto close on trailing </
+      },
+      -- Filetype-specific settings
+      per_filetype = {
+        ['html'] = {
+          enable_close = false,
+        },
+      },
+    }
+  end,
 }
