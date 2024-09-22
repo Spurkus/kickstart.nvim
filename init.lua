@@ -594,7 +594,7 @@ require('lazy').setup({
       local servers = {
         -- clangd = {},
         -- gopls = {},
-        -- pyright = {},
+        pyright = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -641,6 +641,7 @@ require('lazy').setup({
         'prettier',
         'prettierd',
         'eslint',
+        'yapf',
       })
 
       -- Setting up prettier as default formatter
@@ -704,6 +705,13 @@ require('lazy').setup({
         json = { 'prettierd' },
         javascriptreact = { 'prettierd' },
         typescriptreact = { 'prettierd' },
+        python = { 'yapf' },
+      },
+      formatters = {
+        yapf = {
+          command = 'yapf',
+          args = { '--style', 'google' },
+        },
       },
     },
   },
