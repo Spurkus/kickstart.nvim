@@ -174,9 +174,6 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- Neotree commands
-vim.keymap.set('n', '<leader>e', ':Neotree toggle<CR>', { noremap = true, silent = true, desc = 'toggles Neotree' })
-
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -710,7 +707,7 @@ require('lazy').setup({
       formatters = {
         yapf = {
           command = 'yapf',
-          args = { '--style', 'google' },
+          args = { '--style', '{based_on_style: google, column_limit: 100}' },
         },
       },
     },

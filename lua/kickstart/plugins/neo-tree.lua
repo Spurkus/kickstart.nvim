@@ -12,6 +12,9 @@ return {
   cmd = 'Neotree',
   keys = {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    { '<leader>e', ':Neotree toggle<CR>', desc = 'NeoTree toggle', silent = true },
+    { '<C-Left>', ':vertical resize -2<CR>', desc = 'Decrease window size', silent = true },
+    { '<C-Right>', ':vertical resize +2<CR>', desc = 'Increase window size', silent = true },
   },
   opts = {
     filesystem = {
