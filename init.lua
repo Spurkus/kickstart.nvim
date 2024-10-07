@@ -639,6 +639,7 @@ require('lazy').setup({
         'prettierd',
         'eslint',
         'yapf',
+        'latexindent',
       })
 
       -- Setting up prettier as default formatter
@@ -703,11 +704,19 @@ require('lazy').setup({
         javascriptreact = { 'prettierd' },
         typescriptreact = { 'prettierd' },
         python = { 'yapf' },
+        tex = { 'latexindent' },
       },
       formatters = {
         yapf = {
           command = 'yapf',
           args = { '--style', '{based_on_style: google, column_limit: 100}' },
+        },
+        latexindent = {
+          command = 'latexindent',
+          args = {
+            '-m',
+            "-y=defaultIndent:'    '", -- Sets indent to 4 spaces
+          },
         },
       },
     },

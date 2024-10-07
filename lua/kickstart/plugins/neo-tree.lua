@@ -23,6 +23,12 @@ return {
           ['\\'] = 'close_window',
         },
       },
+      filtered_items = {
+        visible = true, -- By default, show hidden files in the list
+        hide_by_pattern = { '*.aux', '*.log', '*.fls', '*.fdb_latexmk' }, -- Specify hidden file patterns
+        hide_hidden_files = true, -- Collapse hidden files into a single expandable group
+        expand_hidden = true, -- Allow expanding the hidden files group
+      },
     },
   },
 }

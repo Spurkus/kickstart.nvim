@@ -1,17 +1,21 @@
 return {
   'lervag/vimtex',
-  lazy = false, -- we don't want to lazy load VimTeX
-  -- tag = "v2.15", -- uncomment to pin to a specific release
+  lazy = false,
   init = function()
-    -- VimTeX configuration
-    vim.g.vimtex_view_method = 'zathura'
-    vim.g.vimtex_quickfix_mode = 0 -- Disable the quickfix list
+    vim.g.vimtex_view_method = 'zathura' -- Use Zathura as the viewer
+    vim.g.vimtex_quickfix_mode = 0 -- Disable quickfix
   end,
   config = function()
-    -- Enable continuous compilation
-    vim.g.vimtex_compiler_method = 'latexmk' -- Use latexmk for continuous compilation
+    vim.g.vimtex_compiler_method = 'latexmk'
     vim.g.vimtex_compiler_latexmk = {
-      continuous = 1, -- Continuous mode
+      build_dir = '',
+      options = {
+        '-pdf', -- Generate PDF
+        '-pdflatex=lualatex', -- Explicitly set LuaLaTeX as the engine
+        '-shell-escape', -- Enable shell escape
+        '-interaction=nonstopmode', -- Continue on errors
+      },
+      continuous = 1, -- Continuous compilation mode
     }
   end,
 }
