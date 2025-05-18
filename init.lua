@@ -579,6 +579,12 @@ require('lazy').setup({
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
+      require('lspconfig').dafny.setup {
+        cmd = { 'dafny', 'server' },
+        filetypes = { 'dfy', 'dafny' },
+        single_file_support = true,
+      }
+
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
       --
@@ -689,7 +695,7 @@ require('lazy').setup({
           lsp_format_opt = 'fallback'
         end
         return {
-          timeout_ms = 500,
+          timeout_ms = 1000,
           lsp_format = lsp_format_opt,
         }
       end,
@@ -703,8 +709,9 @@ require('lazy').setup({
         json = { 'prettierd' },
         javascriptreact = { 'prettierd' },
         typescriptreact = { 'prettierd' },
-        python = { 'yapf' },
+        python = { 'black' },
         tex = { 'latexindent' },
+        haskell = { 'stylish-haskell' },
       },
       formatters = {
         yapf = {
